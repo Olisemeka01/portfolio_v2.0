@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { PaperPlane } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -32,27 +33,33 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Improved Arrow pointing to v1 */}
+        {/* Curved dotted trail with paper plane */}
         <div className="absolute bottom-10 right-10 hidden lg:block">
           <svg 
-            width="220" 
-            height="120" 
-            className="stroke-primary"
-            style={{ strokeDasharray: '8 4', strokeDashoffset: '0' }}
+            width="280" 
+            height="150" 
+            className="stroke-primary/60"
+            viewBox="0 0 280 150"
           >
+            {/* Curved dotted path */}
             <path 
-              d="M20,20 Q120,60 200,100" 
+              d="M20,130 Q80,50 140,80 Q200,110 260,40" 
               fill="none" 
-              strokeWidth="3" 
+              strokeWidth="2" 
               strokeLinecap="round"
-              className="animate-draw-arrow"
-            />
-            <polygon 
-              points="195,95 205,100 195,105" 
-              fill="currentColor"
-              className="text-primary"
+              strokeDasharray="4 6"
+              className="animate-draw-trail"
             />
           </svg>
+          
+          {/* Paper plane pointing at v1 */}
+          <div className="absolute top-4 right-4">
+            <PaperPlane 
+              className="w-6 h-6 text-primary transform rotate-45 animate-float" 
+            />
+          </div>
+          
+          {/* v1 label */}
           <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
             v1
           </div>

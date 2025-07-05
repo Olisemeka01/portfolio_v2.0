@@ -95,6 +95,14 @@ export default {
 				'draw-arrow': {
 					'0%': { strokeDashoffset: '100' },
 					'100%': { strokeDashoffset: '0' }
+				},
+				'draw-trail': {
+					'0%': { strokeDashoffset: '200' },
+					'100%': { strokeDashoffset: '0' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
@@ -103,7 +111,9 @@ export default {
 				'scroll': 'scroll 20s linear infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'glow': 'glow 2s ease-in-out infinite',
-				'draw-arrow': 'draw-arrow 2s ease-in-out infinite'
+				'draw-arrow': 'draw-arrow 2s ease-in-out infinite',
+				'draw-trail': 'draw-trail 3s ease-out infinite',
+				'fade-in': 'fade-in 0.3s ease-out'
 			}
 		}
 	},
