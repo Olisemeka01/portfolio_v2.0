@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PaperPlane } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -34,33 +34,33 @@ const HeroSection = () => {
         </div>
         
         {/* Curved dotted trail with paper plane */}
-        <div className="absolute bottom-10 right-10 hidden lg:block">
+        <div className="absolute bottom-20 right-20 hidden lg:block">
           <svg 
-            width="280" 
-            height="150" 
+            width="320" 
+            height="180" 
             className="stroke-primary/60"
-            viewBox="0 0 280 150"
+            viewBox="0 0 320 180"
           >
-            {/* Curved dotted path */}
+            {/* Curved dotted path with more dramatic curl */}
             <path 
-              d="M20,130 Q80,50 140,80 Q200,110 260,40" 
+              d="M30,150 Q60,120 90,130 Q140,140 180,100 Q220,60 260,80 Q290,100 300,60" 
               fill="none" 
-              strokeWidth="2" 
+              strokeWidth="3" 
               strokeLinecap="round"
-              strokeDasharray="4 6"
+              strokeDasharray="6 8"
               className="animate-draw-trail"
             />
           </svg>
           
           {/* Paper plane pointing at v1 */}
-          <div className="absolute top-4 right-4">
-            <PaperPlane 
-              className="w-6 h-6 text-primary transform rotate-45 animate-float" 
+          <div className="absolute top-8 right-6">
+            <Send 
+              className="w-7 h-7 text-primary transform rotate-12 animate-float" 
             />
           </div>
           
           {/* v1 label */}
-          <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+          <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-pulse">
             v1
           </div>
         </div>
