@@ -32,28 +32,28 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Animated Arrow */}
+        {/* Improved Arrow pointing to v1 */}
         <div className="absolute bottom-10 right-10 hidden lg:block">
           <svg 
-            width="200" 
-            height="100" 
+            width="220" 
+            height="120" 
             className="stroke-primary"
-            style={{ strokeDasharray: '100', strokeDashoffset: '100' }}
+            style={{ strokeDasharray: '8 4', strokeDashoffset: '0' }}
           >
             <path 
-              d="M20,80 Q100,20 180,60" 
+              d="M20,20 Q120,60 200,100" 
               fill="none" 
-              strokeWidth="2" 
+              strokeWidth="3" 
               strokeLinecap="round"
               className="animate-draw-arrow"
             />
             <polygon 
-              points="175,55 185,60 175,65" 
+              points="195,95 205,100 195,105" 
               fill="currentColor"
               className="text-primary"
             />
           </svg>
-          <div className="absolute -bottom-6 right-0 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+          <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
             v1
           </div>
         </div>
