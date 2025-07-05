@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl">John Doe</div>
+        <div className="font-bold text-xl"></div>
         
         <div className="hidden md:flex space-x-8">
           <button 
@@ -39,6 +39,10 @@ const Navigation = () => {
             Contact
           </button>
         </div>
+        <Button
+          variant="outline">
+           View Resume </Button>
+
 
         <Button
           variant="ghost"

@@ -8,11 +8,10 @@ const ProjectsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const projects = [
-    { id: 1, title: 'E-Commerce Platform', status: 'Coming Soon' },
-    { id: 2, title: 'Task Management App', status: 'Coming Soon' },
+    { id: 1, title: 'Time Capsule Messenger', status: 'Coming Soon' },
+    { id: 2, title: ' AI-Powered Daily Planner', status: 'Coming Soon' },
     { id: 3, title: 'Social Media Dashboard', status: 'Coming Soon' },
-    { id: 4, title: 'Weather Forecast App', status: 'Coming Soon' },
-    { id: 5, title: 'Portfolio Website', status: 'Coming Soon' },
+    { id: 5, title: 'Code Refactoring Ai', status: 'Coming Soon' },
   ];
 
   const nextSlide = () => {

@@ -1,19 +1,32 @@
-
 import React, { useState } from 'react';
-import { ArrowUp } from 'lucide-react';
+import * as icons from 'simple-icons/icons';
+
+const Icon = ({ icon, size = 24, color, className = '' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill={color || `#${icon.hex}`}
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    dangerouslySetInnerHTML={{ __html: icon.svg }}
+  />
+);
 
 const TechLogos = () => {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   const technologies = [
-    { name: 'GitHub', logo: '🐙', pun: "Let's Git in touch!", color: '#333' },
-    { name: 'Vue.js', logo: '🟢', pun: "Nice to Vue you!", color: '#4FC08D' },
-    { name: 'React', logo: '⚛️', pun: "Now that's a React-ion!", color: '#61DAFB' },
-    { name: 'Node.js', logo: '🟩', pun: "Node doubt about it!", color: '#68A063' },
-    { name: 'TailwindCSS', logo: '🎨', pun: "Styling made Swift!", color: '#06B6D4' },
-    { name: 'TypeScript', logo: '🔷', pun: "Type-ing it right!", color: '#3178C6' },
-    { name: 'JavaScript', logo: '💛', pun: "Just Script it!", color: '#F7DF1E' },
-    { name: 'MongoDB', logo: '🍃', pun: "Mongo and get it!", color: '#47A248' },
+    { name: 'GitHub', icon: icons.siGithub, pun: "Let's Git in touch!", color: '#181717' },
+    { name: 'Git', icon: icons.siGit, pun: "Git-er done!", color: '#F05032' },
+    { name: 'TypeScript', icon: icons.siTypescript, pun: "Type-ing it right!", color: '#3178C6' },
+    { name: 'JavaScript', icon: icons.siJavascript, pun: "Just Script it!", color: '#F7DF1E' },
+    { name: 'Vue.js', icon: icons.siVuedotjs, pun: "Nice to Vue you!", color: '#4FC08D' },
+    { name: 'Quasar', icon: icons.siQuasar, pun: "Quantum leap!", color: '#050A14' },
+    { name: 'React', icon: icons.siReact, pun: "Now that's a React-ion!", color: '#61DAFB' },
+    { name: 'NestJs', icon: icons.siNestjs, pun: "Nest-egg of code!", color: '#E0234E' },
+    { name: 'Appsmith', icon: icons.siAppsmith, pun: "Smithing apps!", color: '#2A2F3D' },
+    { name: 'Postgres', icon: icons.siPostgresql, pun: "Post with the most!", color: '#4169E1' },
   ];
 
   return (
@@ -23,18 +36,27 @@ const TechLogos = () => {
           Technologies & Tools
         </h2>
         
-        <div className="scroll-container overflow-hidden">
-          <div className="scroll-content flex animate-scroll">
+        <div className="relative overflow-hidden group">
+          {/* Gradient fade effect on sides */}
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
+          
+          <div 
+            className="flex w-max"
+            style={{
+              animation: 'scroll 20s linear infinite',
+              willChange: 'transform'
+            }}
+          >
             {[...technologies, ...technologies].map((tech, index) => (
               <div
-                key={index}
+                key={`${tech.name}-${index}`}
                 className="flex-shrink-0 mx-8 text-center cursor-pointer group relative"
                 onMouseEnter={() => setHoveredTech(tech.name)}
                 onMouseLeave={() => setHoveredTech(null)}
               >
-                {/* Curved arrow on hover */}
                 {hoveredTech === tech.name && (
-                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 animate-fade-in">
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 animate-fade-in z-20">
                     <svg width="40" height="30" viewBox="0 0 40 30" className="stroke-primary">
                       <path 
                         d="M20,25 Q15,15 20,5" 
@@ -60,7 +82,7 @@ const TechLogos = () => {
                     filter: hoveredTech === tech.name ? 'none' : 'grayscale(100%)'
                   }}
                 >
-                  {tech.logo}
+                  <Icon icon={tech.icon} size={32} color={hoveredTech === tech.name ? tech.color : undefined} />
                 </div>
                 <p className="mt-3 font-medium text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                   {tech.name}
@@ -75,6 +97,20 @@ const TechLogos = () => {
           </div>
         </div>
       </div>
+      
+      <style jsx global>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .group:hover .flex {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };
