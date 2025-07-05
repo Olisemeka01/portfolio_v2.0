@@ -15,28 +15,26 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-purple-200/20 dark:border-cyan-400/20">
+    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl bg-gradient-to-r from-purple-600 to-cyan-400 bg-clip-text text-transparent">
-          John Doe
-        </div>
+        <div className="font-bold text-xl">John Doe</div>
         
         <div className="hidden md:flex space-x-8">
           <button 
             onClick={() => scrollToSection('home')}
-            className="hover:text-purple-500 dark:hover:text-cyan-400 transition-colors duration-300 font-medium"
+            className="hover:text-primary transition-colors duration-200"
           >
             Home
           </button>
           <button 
             onClick={() => scrollToSection('projects')}
-            className="hover:text-purple-500 dark:hover:text-cyan-400 transition-colors duration-300 font-medium"
+            className="hover:text-primary transition-colors duration-200"
           >
             Projects
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="hover:text-purple-500 dark:hover:text-cyan-400 transition-colors duration-300 font-medium"
+            className="hover:text-primary transition-colors duration-200"
           >
             Contact
           </button>
@@ -46,12 +44,12 @@ const Navigation = () => {
           variant="ghost"
           size="icon"
           onClick={toggleTheme}
-          className="rounded-full hover:bg-purple-100 dark:hover:bg-cyan-900/20 border-2 border-transparent hover:border-purple-300 dark:hover:border-cyan-400/30 transition-all duration-300"
+          className="rounded-full hover:bg-accent"
         >
           {theme === 'light' ? (
-            <Moon className="h-5 w-5 text-purple-600" />
+            <Moon className="h-5 w-5" />
           ) : (
-            <Sun className="h-5 w-5 text-cyan-400" />
+            <Sun className="h-5 w-5" />
           )}
         </Button>
       </div>

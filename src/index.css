@@ -37,13 +37,13 @@
   }
 
   .dark {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 6%;
+    --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 6%;
+    --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 221.2 83.2% 53.3%;
@@ -78,27 +78,19 @@
 
 @layer components {
   .hero-bg-light {
-    background: linear-gradient(135deg, 
-      rgba(168, 85, 247, 0.15) 0%, 
-      rgba(59, 130, 246, 0.15) 25%, 
-      rgba(6, 182, 212, 0.15) 50%, 
-      rgba(139, 92, 246, 0.15) 75%, 
-      rgba(236, 72, 153, 0.15) 100%
-    );
-    background-size: 400% 400%;
-    animation: gradient-shift 8s ease-in-out infinite;
+    background: rgba(59, 130, 246, 0.5);
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
   }
   
   .hero-bg-dark {
-    background: linear-gradient(135deg, 
-      rgba(15, 23, 42, 0.95) 0%, 
-      rgba(30, 41, 59, 0.95) 25%, 
-      rgba(51, 65, 85, 0.95) 50%, 
-      rgba(30, 41, 59, 0.95) 75%, 
-      rgba(15, 23, 42, 0.95) 100%
-    );
-    background-size: 400% 400%;
-    animation: gradient-shift 12s ease-in-out infinite;
+    background: #000;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
   }
 
   .curved-section {
@@ -107,30 +99,5 @@
 
   .scroll-container:hover .scroll-content {
     animation-play-state: paused;
-  }
-}
-
-@layer utilities {
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  
-  @keyframes draw-arrow {
-    0% { 
-      stroke-dashoffset: 100;
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% { 
-      stroke-dashoffset: 0;
-      opacity: 0.8;
-    }
-  }
-  
-  .animate-draw-arrow {
-    animation: draw-arrow 3s ease-in-out infinite;
   }
 }
