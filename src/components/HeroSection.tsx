@@ -1,6 +1,7 @@
-
 import React from 'react';
 import { Send } from 'lucide-react';
+import pfp from '../assests/images/pfp_1.png'; // Import the image
+
 
 const HeroSection = () => {
   return (
@@ -12,10 +13,10 @@ const HeroSection = () => {
           <div className="order-2 md:order-1">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-                John Doe
+                Olisemeka Onochie
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                I'm a Software Engineer passionate about building clean and scalable web apps.
+              I'm a Software Engineer passionate about building clean, scalable web apps — because the right vibe while coding isn’t just a mood, it’s a productivity hack and debugging’s just part of the rhythm.
               </p>
             </div>
           </div>
@@ -24,8 +25,8 @@ const HeroSection = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl animate-float">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
-                  alt="John Doe"
+                  src={pfp}
+                  alt="Olisemeka Onochie"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -53,15 +54,22 @@ const HeroSection = () => {
           </svg>
           
           {/* Paper plane pointing at v1 */}
-          <div className="absolute top-8 right-6">
+          <div className="absolute top-8 right-0">
             <Send 
               className="w-7 h-7 text-primary transform rotate-12 animate-float" 
             />
           </div>
           
-          {/* v1 label */}
-          <div className="absolute bottom-0 right-0 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-pulse">
-            v1
+          {/* v1 label - moved further right and added link */}
+          <div className="absolute top-0 right-0 transform translate-x-1/2">
+            <a 
+              href="https://portfolio-ot01.onrender.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-primary/90 transition-colors animate-pulse"
+            >
+              Portfolio V1
+            </a>
           </div>
         </div>
       </div>

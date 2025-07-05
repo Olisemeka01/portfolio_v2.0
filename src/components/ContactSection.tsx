@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Mail, Linkedin } from 'lucide-react';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Button } from './ui/button';
 
 const ContactSection = () => {
@@ -8,7 +9,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'Email',
-      href: 'mailto:john.doe@example.com',
+      href: 'mailto:onochieemeka2@gmail.com',
       color: 'hover:text-red-500'
     },
     {
@@ -16,6 +17,12 @@ const ContactSection = () => {
       label: 'LinkedIn',
       href: 'https://linkedin.com/in/johndoe',
       color: 'hover:text-blue-600'
+    },
+        {
+      icon: WhatsAppIcon,
+      label: 'LinkedIn',
+      href: 'https://wa.me/2349042407534?text=Hi%20there%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out.',
+      color: 'hover:text-green-600'
     },
   ];
 

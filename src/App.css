@@ -11,9 +11,7 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -40,3 +38,16 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Disable hover effects on smaller screens
+@media (max-width: 768px) {
+  .logo:hover,
+  .logo.react:hover {
+    filter: none;
+  }
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: none;
+  }
+} */
