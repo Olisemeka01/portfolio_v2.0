@@ -20,7 +20,7 @@ const ContactSection = () => {
     },
         {
       icon: WhatsAppIcon,
-      label: 'LinkedIn',
+      label: 'WhatsApp',
       href: 'https://wa.me/2349042407534?text=Hi%20there%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out.',
       color: 'hover:text-green-600'
     },
