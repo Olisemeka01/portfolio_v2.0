@@ -15,7 +15,7 @@ const ContactSection = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/johndoe',
+      href: 'https://www.linkedin.com/in/onochie-olisemeka-068960294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       color: 'hover:text-blue-600'
     },
         {
