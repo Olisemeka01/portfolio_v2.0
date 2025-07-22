@@ -1,6 +1,6 @@
 import React from 'react';
 import { Send } from 'lucide-react';
-import pfp from '../assests/images/pfp_1.png'; // Import the image
+import pfp from '../assests/images/Vic-21.png'
 
 
 const HeroSection = () => {
