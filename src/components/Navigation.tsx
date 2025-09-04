@@ -39,7 +39,7 @@ const Navigation = () => {
             Contact
           </button>
         </div>
-        <a href="https://drive.google.com/file/d/1QlKN6OT1_AWt7CDgRxbvb0PytycLd0w7/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/file/d/1OICzS6o2yiKdr7ncTMPJv9Eh2X19GM2q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
         <Button variant="outline">View Resume</Button>
         </a>
 
