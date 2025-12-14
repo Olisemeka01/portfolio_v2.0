@@ -6,6 +6,7 @@ import { Button } from './ui/button';
 
 const Navigation = () => {
   const { theme, toggleTheme } = useTheme();
+  const resumeUrl = import.meta.env.VITE_RESUME_URL
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -39,7 +40,7 @@ const Navigation = () => {
             Contact
           </button>
         </div>
-        <a href="https://drive.google.com/file/d/1OICzS6o2yiKdr7ncTMPJv9Eh2X19GM2q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
         <Button variant="outline">View Resume</Button>
         </a>
 

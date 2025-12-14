@@ -2,7 +2,7 @@ import React from 'react';
 import { Send } from 'lucide-react';
 import pfp from '../assests/images/Vic-21.png'
 
-
+const portfolioV1Url = import.meta.env.VITE_PORTFOLIO_V1_URL;
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
@@ -63,7 +63,7 @@ const HeroSection = () => {
           {/* v1 label - moved further right and added link */}
           <div className="absolute top-0 right-0 transform translate-x-1/2">
             <a 
-              href="https://portfolio-ot01.onrender.com/" 
+              href={portfolioV1Url} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-primary/90 transition-colors animate-pulse"

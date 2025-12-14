@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import * as icons from 'simple-icons/icons';
 
 const Icon = ({ icon, size = 24, color, className = '' }) => (
@@ -15,6 +15,7 @@ const Icon = ({ icon, size = 24, color, className = '' }) => (
 
 const TechLogos = () => {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const scrollingContainerRef = useRef<HTMLDivElement>(null);
 
   const technologies = [
     { name: 'GitHub', icon: icons.siGithub, pun: "Let's Git in touch!", color: '#181717' },
@@ -29,6 +30,21 @@ const TechLogos = () => {
     { name: 'Postgres', icon: icons.siPostgresql, pun: "Post with the most!", color: '#4169E1' },
   ];
 
+  // Handle hover to pause animation
+  const handleMouseEnter = (techName: string) => {
+    setHoveredTech(techName);
+    if (scrollingContainerRef.current) {
+      scrollingContainerRef.current.style.animationPlayState = 'paused';
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredTech(null);
+    if (scrollingContainerRef.current) {
+      scrollingContainerRef.current.style.animationPlayState = 'running';
+    }
+  };
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -36,62 +52,95 @@ const TechLogos = () => {
           Technologies & Tools
         </h2>
         
-        <div className="relative overflow-hidden group">
+        <div className="relative overflow-hidden">
           {/* Gradient fade effect on sides */}
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
           
           <div 
+            ref={scrollingContainerRef}
             className="flex w-max"
             style={{
               animation: 'scroll 20s linear infinite',
-              willChange: 'transform'
+            }}
+            onMouseEnter={() => {
+              if (scrollingContainerRef.current) {
+                scrollingContainerRef.current.style.animationPlayState = 'paused';
+              }
+            }}
+            onMouseLeave={() => {
+              if (scrollingContainerRef.current && !hoveredTech) {
+                scrollingContainerRef.current.style.animationPlayState = 'running';
+              }
             }}
           >
             {[...technologies, ...technologies].map((tech, index) => (
               <div
                 key={`${tech.name}-${index}`}
-                className="flex-shrink-0 mx-8 text-center cursor-pointer group relative"
-                onMouseEnter={() => setHoveredTech(tech.name)}
-                onMouseLeave={() => setHoveredTech(null)}
+                className="flex-shrink-0 mx-8 text-center cursor-pointer"
+                onMouseEnter={() => handleMouseEnter(tech.name)}
+                onMouseLeave={handleMouseLeave}
               >
-                {hoveredTech === tech.name && (
-                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 animate-fade-in z-20">
-                    <svg width="40" height="30" viewBox="0 0 40 30" className="stroke-primary">
-                      <path 
-                        d="M20,25 Q15,15 20,5" 
-                        fill="none" 
-                        strokeWidth="2" 
-                        strokeLinecap="round"
-                        className="animate-draw-arrow"
-                      />
-                      <polygon 
-                        points="18,7 20,5 22,7" 
-                        fill="currentColor"
-                        className="text-primary"
-                      />
-                    </svg>
+                {/* Tech icon container with joke space */}
+                <div className="relative pb-16">
+                  {/* Arrow indicator */}
+                  {hoveredTech === tech.name && (
+                    <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10">
+                      <svg width="40" height="30" viewBox="0 0 40 30" className="stroke-primary">
+                        <path 
+                          d="M20,25 Q15,15 20,5" 
+                          fill="none" 
+                          strokeWidth="2" 
+                          strokeLinecap="round"
+                          style={{
+                            strokeDasharray: 100,
+                            strokeDashoffset: 0,
+                            animation: 'drawArrow 0.3s ease-out forwards'
+                          }}
+                        />
+                        <polygon 
+                          points="18,7 20,5 22,7" 
+                          fill="currentColor"
+                          className="text-primary"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Tech icon */}
+                  <div 
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                    style={{
+                      backgroundColor: hoveredTech === tech.name ? 'white' : 'hsl(var(--background))',
+                      border: `2px solid ${hoveredTech === tech.name ? tech.color : 'hsl(var(--border))'}`,
+                      filter: hoveredTech === tech.name ? 'none' : 'grayscale(100%)'
+                    }}
+                  >
+                    <Icon 
+                      icon={tech.icon} 
+                      size={32} 
+                      color={hoveredTech === tech.name ? tech.color : undefined} 
+                    />
                   </div>
-                )}
-                
-                <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group-hover:animate-glow"
-                  style={{
-                    backgroundColor: hoveredTech === tech.name ? 'white' : 'hsl(var(--background))',
-                    border: `2px solid ${hoveredTech === tech.name ? tech.color : 'hsl(var(--border))'}`,
-                    filter: hoveredTech === tech.name ? 'none' : 'grayscale(100%)'
-                  }}
-                >
-                  <Icon icon={tech.icon} size={32} color={hoveredTech === tech.name ? tech.color : undefined} />
-                </div>
-                <p className="mt-3 font-medium text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                  {tech.name}
-                </p>
-                {hoveredTech === tech.name && (
-                  <p className="mt-2 text-primary font-medium text-sm animate-float">
-                    {tech.pun}
+                  
+                  {/* Tech name */}
+                  <p className="mt-3 font-medium text-sm text-muted-foreground transition-colors">
+                    {tech.name}
                   </p>
-                )}
+                  
+                  {/* Joke text - positioned below with reserved space */}
+                  <div 
+                    className={`absolute top-full left-0 w-full mt-4 transition-all duration-300 ${
+                      hoveredTech === tech.name 
+                        ? 'opacity-100 transform translate-y-0' 
+                        : 'opacity-0 transform translate-y-4 pointer-events-none'
+                    }`}
+                  >
+                    <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg mx-auto max-w-xs">
+                      <p className="text-sm font-medium text-center">{tech.pun}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -107,8 +156,18 @@ const TechLogos = () => {
             transform: translateX(-50%);
           }
         }
-        .group:hover .flex {
-          animation-play-state: paused;
+        
+        @keyframes drawArrow {
+          0% {
+            stroke-dashoffset: 100;
+          }
+          100% {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+        .glow {
+          filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
         }
       `}</style>
     </section>
