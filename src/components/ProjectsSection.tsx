@@ -4,7 +4,6 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { url } from 'inspector';
 import { isNull } from 'util';
-import marketingScreenshot from '../assests/images/microsite.png'
 
 const urls = { marketingUrl: import.meta.env.VITE_MARKETING_URL};
 const ProjectsSection = () => {
@@ -16,7 +15,7 @@ const ProjectsSection = () => {
       title: 'Marketing Campaign Microsite', 
       status: 'Live',
       description: 'A responsive microsite for marketing campaigns with analytics dashboard',
-      screenshot: marketingScreenshot ,
+      screenshot: '/microsite.png' ,
       liveLink: urls.marketingUrl,
       githubLink: null,
       technologies: ['Vue', 'Tailwind', 'NestJS']
