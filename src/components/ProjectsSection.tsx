@@ -14,7 +14,7 @@ const ProjectsSection = () => {
       id: 1, 
       title: 'Marketing Campaign Microsite', 
       status: 'Live',
-      description: 'A responsive microsite for marketing campaigns with analytics dashboard',
+      description: 'A responsive microsite for marketing campaigns to showcase products and capture leads',
       screenshot: '/microsite.png' ,
       liveLink: urls.marketingUrl,
       githubLink: null,
