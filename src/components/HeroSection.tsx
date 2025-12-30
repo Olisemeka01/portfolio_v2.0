@@ -16,8 +16,8 @@ const HeroSection = () => {
                 Olisemeka Onochie
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              I'm a Software Engineer passionate about building clean, scalable web apps — because the right vibe while coding isn’t just a mood, it’s a productivity hack and debugging’s just part of the rhythm.
-              </p>
+I'm a software engineer who loves building clean, scalable web apps. A good coding vibe helps me stay productive, and debugging is just another step along the way.              
+</p>
             </div>
           </div>
           
