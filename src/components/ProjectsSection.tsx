@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       title: 'Marketing Campaign Microsite',
       status: 'Live',
       description: 'A responsive microsite for marketing campaigns to showcase products and capture leads',
-      screenshot: 'https://drive.google.com/file/d/13Qm98I30Z3eZTnRu3V5Q8sVkimVoYtZI/view?usp=sharing',
+      screenshot: './MIcrosite.png',
       liveLink: urls.marketingUrl,
       githubLink: null,
       technologies: ['Vue', 'Tailwind', 'Vite']
@@ -36,18 +36,18 @@ const ProjectsSection = () => {
 
   const backendProjects = [
     {
-      id: 4,
+      id: 3,
       title: 'NestJS Authentication API',
       status: 'Live',
       description:'A comprehensive authentication and authorization API system built with NestJS, featuring multiple authentication methods, role-based access control (RBAC), and audit logging.',
-      screenshot: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      screenshot: './auth_system.jpg',
       liveLink: null,
       githubLink: 'https://github.com/Olisemeka01/Auth-system',
       technologies: ['NestJS', 'TypeScript', 'PostgreSQL', 'Redis', 'JWT'],
       features: ['JWT Authentication', 'RBAC System', 'Audit Logs', 'API Documentation']
     },
     {
-      id: 5,
+      id: 4,
       title: 'Code Refactoring AI',
       status: 'Coming Soon',
       description: 'AI-powered tool for automatic code refactoring and optimization',
