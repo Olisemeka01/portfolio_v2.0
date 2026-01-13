@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       title: 'Marketing Campaign Microsite',
       status: 'Live',
       description: 'A responsive microsite for marketing campaigns to showcase products and capture leads',
-      screenshot: './MIcrosite.png',
+      screenshot: './microsite.png',
       liveLink: urls.marketingUrl,
       githubLink: null,
       technologies: ['Vue', 'Tailwind', 'Vite']
