@@ -5,65 +5,69 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 60 20% 97%;
+    --foreground: 240 10% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 10%;
 
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 150 80% 26%;
+    --primary-foreground: 60 20% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 6% 92%;
+    --secondary-foreground: 240 10% 14%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 6% 92%;
+    --muted-foreground: 240 5% 38%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 6% 92%;
+    --accent-foreground: 240 10% 14%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 6% 84%;
+    --input: 240 6% 84%;
+    --ring: 150 80% 26%;
 
-    --radius: 1rem;
+    --grid-line: 240 6% 88%;
+
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 240 8% 4%;
+    --foreground: 120 5% 94%;
 
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 6% 7%;
+    --card-foreground: 120 5% 94%;
 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 6% 7%;
+    --popover-foreground: 120 5% 94%;
 
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 150 90% 45%;
+    --primary-foreground: 240 8% 6%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 120 5% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 62%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 240 5% 12%;
+    --accent-foreground: 120 5% 90%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 150 90% 45%;
+
+    --grid-line: 240 5% 10%;
   }
 }
 
@@ -71,33 +75,44 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground font-poppins;
+    @apply bg-background text-foreground font-display antialiased;
+  }
+  ::selection {
+    @apply bg-primary text-primary-foreground;
   }
 }
 
 @layer components {
-  .hero-bg-light {
-    background: rgba(59, 130, 246, 0.5);
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
-  }
-  
-  .hero-bg-dark {
-    background: #000;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  /* Subtle engineering grid with a faint accent wash */
+  .terminal-bg-light {
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px),
+      radial-gradient(circle at 70% 15%, hsl(var(--primary) / 0.08) 0%, transparent 55%);
+    background-size: 48px 48px, 48px 48px, 100% 100%;
   }
 
-  .curved-section {
-    clip-path: ellipse(100% 100% at 50% 0%);
+  .terminal-bg-dark {
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px),
+      radial-gradient(circle at 70% 15%, hsl(var(--primary) / 0.07) 0%, transparent 55%);
+    background-size: 48px 48px, 48px 48px, 100% 100%;
   }
 
-  .scroll-container:hover .scroll-content {
-    animation-play-state: paused;
+  /* Fade the grid out toward the bottom of the hero */
+  .grid-fade {
+    background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 90%);
+  }
+
+  /* Mono chip shared by terminal-style labels */
+  .mono-label {
+    @apply font-mono text-sm tracking-wide;
   }
 }
